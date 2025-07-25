@@ -1,10 +1,6 @@
-Com certeza! Vou te entregar um **guia de documentação em Markdown**, pronto para o seu `README.md` ou `START.md`, cobrindo **o que foi feito, por que foi feito, e o passo a passo para executar** o ambiente de desenvolvimento.
+# Ambiente de Desenvolvimento – Documentação
 
----
-
-# 📦 Ambiente de Desenvolvimento – Documentação
-
-## 📋 Visão Geral
+## Visão Geral
 
 Este projeto oferece um ambiente de desenvolvimento completo, baseado em Docker e Docker Compose, para facilitar o trabalho de desenvolvedores frontend e backend, bem como garantir a reprodutibilidade e isolar dependências do sistema operacional do usuário.
 
@@ -17,36 +13,8 @@ O ambiente é composto por:
 
 ---
 
-## 🗂️ Estrutura dos Diretórios
 
-```text
-projeto/
-├── backend/
-│   ├── Dockerfile
-│   ├── cron.Dockerfile
-│   ├── cron.sh
-│   ├── start.sh
-│   ├── requirements.txt
-│   └── src/
-├── database/
-│   ├── Dockerfile
-│   ├── start.sh
-│   └── scripts/
-│       └── init_db.sql
-├── frontend/
-│   ├── Dockerfile
-│   ├── nginx/
-│   │   └── nginx.conf
-│   ├── .dockerignore
-│   └── src/, public/, ...
-├── docker-compose.yml
-├── .env.example
-└── ...
-```
-
----
-
-## 🚀 Como executar o ambiente de desenvolvimento
+## Como executar o ambiente de desenvolvimento
 
 ### 1. **Pré-requisitos**
 
@@ -68,7 +36,7 @@ projeto/
    ```
    DATABASE_HOST=database
    DATABASE_USER=root
-   DATABASE_PASS=secret
+   DATABASE_PASSWORD=secret
    DATABASE_DBNAME=db_prova
    UPLOAD_DIR=/app/uploads
    TZ=America/Sao_Paulo
@@ -150,14 +118,9 @@ docker-compose up --build
 
 ---
 
-## ✅ Observações Finais
+## Observações Finais
 
 * Todo o ambiente é isolado, reproduzível e fácil de inicializar.
 * O uso de variáveis de ambiente e volumes garante flexibilidade, persistência e segurança.
 * Scripts estão organizados por serviço, facilitando manutenção e extensão futura.
 * Qualquer desenvolvedor pode iniciar o ambiente com apenas um comando e sem instalar nada além do Docker.
-
----
-
-Se quiser um texto ainda mais enxuto, ou um exemplo para colocar em português ou inglês, só pedir!
-Se quiser também um **diagrama de arquitetura** (em ASCII, Mermaid, ou imagem) posso gerar para documentar visualmente a stack.
