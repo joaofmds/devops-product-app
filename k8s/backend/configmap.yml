@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  DATABASE_HOST: "postgres"
+  DATABASE_DBNAME: "db_prova"
+  UPLOAD_DIR: "/app/uploads"
+  TZ: "America/Sao_Paulo"
