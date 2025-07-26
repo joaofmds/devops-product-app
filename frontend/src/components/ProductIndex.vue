@@ -65,7 +65,7 @@
 
 const axios = require('axios').default;
 const moment = require('moment');
-const API_URL = 'http://localhost:8081/';
+const API_URL = 'http://local.devops/api/';
 
 export default {
   name: 'ProductIndex',
