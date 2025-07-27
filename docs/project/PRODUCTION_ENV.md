@@ -1,4 +1,4 @@
-# Ambiente de Desenvolvimento – Documentação
+# Ambiente de Produção – Documentação
 
 
 ## 1. Instale os Pré-requisitos
@@ -81,6 +81,58 @@ docker login
 ```
 
 ---
+
+
+## 6. Configure as Secrets do Projeto
+
+Antes de aplicar os manifests, **edite as secrets de acordo com as suas credenciais**.
+Você pode usar valores default apenas para ambiente local/teste, mas **NÃO COMMITAR secrets sensíveis em produção**.
+
+### Ajuste as secrets do backend
+
+Arquivo: `k8s/backend/secret.yml`
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-secret
+type: Opaque
+stringData:
+  DATABASE_USER: "root"      # <--- Altere para o usuário do seu banco
+  DATABASE_PASS: "secret"    # <--- Altere para a senha do seu banco
+```
+
+### Ajuste as secrets do banco de dados
+
+Arquivo: `k8s/database/secret.yml`
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-secret
+type: Opaque
+data:
+  POSTGRES_USER: <base64_usuario>          # Exemplo: echo -n "root" | base64
+  POSTGRES_PASSWORD: <base64_senha>        # Exemplo: echo -n "secret" | base64
+  POSTGRES_DB: <base64_nome_banco>         # Exemplo: echo -n "db_prova" | base64
+```
+
+**Exemplo para gerar o base64:**
+
+```sh
+echo -n "root" | base64            # Para usuário
+echo -n "secret" | base64          # Para senha
+echo -n "db_prova" | base64        # Para nome do banco
+```
+
+> **Atenção:**
+> Não use credenciais reais em ambientes de teste/públicos.
+> Nunca faça commit de secrets reais no repositório.
+
+---
+
 
 ## 7. Suba os Recursos do Kubernetes
 
