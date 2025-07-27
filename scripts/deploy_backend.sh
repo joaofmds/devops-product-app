@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-DOCKER_USER="joaofmds"
+DOCKER_USER="${DOCKER_USER:-joaofmds}"
 IMAGE_NAME="python-backend"
 DEPLOYMENT="backend"
 NAMESPACE="devops"
