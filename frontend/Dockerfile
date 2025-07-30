@@ -9,8 +9,9 @@ COPY jsconfig.json .
 COPY public ./public
 COPY src ./src
 
-ARG VITE_API_URL
-ENV VITE_API_URL=$VITE_API_URL
+ARG VUE_APP_API_URL
+ENV VUE_APP_API_URL=$VUE_APP_API_URL
+
 
 RUN npm install && npm run build
 

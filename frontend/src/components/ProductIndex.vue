@@ -63,9 +63,10 @@
 
 <script>
 
-const axios = require('axios').default;
-const moment = require('moment');
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api/';
+import axios from 'axios';
+import moment from 'moment';
+const API_URL = process.env.VUE_APP_API_URL || 'http://localhost:8081/api/';
+console.log('API_URL:', API_URL);
 
 export default {
   name: 'ProductIndex',
