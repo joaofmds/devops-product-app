@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-ingress
+  namespace: devops
+spec:
+  rules:
+    - host: local.devops
+      http:
+        paths:
+          - pathType: Prefix
+            path: /api
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 8081
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 8080

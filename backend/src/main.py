@@ -41,7 +41,8 @@ class Product(BaseModel):
     quantity: float
 
 
-@api.get("/")
+
+@api.get("/api")
 def index():
     return {"detail": "Hello World!"}
 
@@ -72,7 +73,7 @@ def import_file_to_database(file_location: str):
         )
 
 
-@api.post("/import_file")
+@api.post("/api/import_file")
 async def import_files(file: UploadFile):
     try:
         upload_dir = os.getenv("UPLOAD_DIR")
@@ -95,7 +96,7 @@ async def import_files(file: UploadFile):
             status_code=500, detail="Erro ao realizar importação!")
 
 
-@api.get("/products", response_model=List[Product])
+@api.get("/api/products", response_model=List[Product])
 async def get_products() -> List[Product]:
     products = []
     with engine.connect() as con:
