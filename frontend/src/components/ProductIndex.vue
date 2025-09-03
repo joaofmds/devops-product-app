@@ -37,7 +37,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th scope="col">Data</th>
+                <th scope="col">Data 1</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Preço Custo</th>
                 <th scope="col">Preço Venda</th>
